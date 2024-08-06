@@ -1,10 +1,14 @@
 # This function checks if nvidia drivers are installed
 check_nvidia_drivers() {
   echo "check_nvidia_drivers bypass!"
+  NVD_VER=470
+  NVD_MAJOR=${NVD_VER%%.*}
 }
 
 check_cuda_version(){
   echo "check_cuda_version bypass!"
+  NVD_VER_CUDA=11.4
+  NVD_MAJOR_CUDA=${NVD_VER_CUDA%%.*}
 }
 
 # This function lists the available Nvidia GPUs and allows the user to select one
