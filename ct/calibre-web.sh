@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-source <(curl -s https://raw.githubusercontent.com/remz1337/Proxmox/remz/misc/build.func)
+source <(curl -s https://raw.githubusercontent.com/quochoangvp/Proxmox/remz/misc/build.func)
 # Copyright (c) 2021-2024 tteck
 # Author: tteck (tteckster)
-# Co-Author: remz1337
+# Co-Author: quochoangvp
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
 
