@@ -128,7 +128,7 @@ if [ ! -z $NVD_VER ]; then
   $STD add-apt-repository contrib
   rm cuda-keyring_1.1-1_all.deb
   if grep -qR "Acquire::http::Proxy" /etc/apt/apt.conf.d/ && [ -f "/etc/apt/sources.list.d/cuda-${os}-x86_64.list" ]; then
-    sed -i "s|https://developer|http://HTTPS///developer|g" /etc/apt/sources.list.d/cuda-${os}-x86_64.list
+    sed -i "s|https://developer|http://developer|g" /etc/apt/sources.list.d/cuda-${os}-x86_64.list
   fi
   $STD apt update && sleep 1
   $STD apt update
