@@ -1,7 +1,7 @@
 # This function checks if nvidia drivers are installed
 check_nvidia_drivers() {
   echo "check_nvidia_drivers bypass!"
-  NVD_VER=470
+  NVD_VER=470.256.02
   NVD_MAJOR=${NVD_VER%%.*}
 }
 
