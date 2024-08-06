@@ -2,7 +2,7 @@
 
 # Copyright (c) 2021-2024 tteck
 # Author: tteck (tteckster)
-# Co-Author: remz1337
+# Co-Author: quochoangvp
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
 
@@ -105,7 +105,7 @@ fi
 echo "tmpfs   /tmp/cache      tmpfs   defaults        0       0" >> /etc/fstab
 msg_ok "Installed Frigate $RELEASE"
 
-source <(curl -s https://raw.githubusercontent.com/remz1337/Proxmox/remz/misc/nvidia.func)
+source <(curl -s https://raw.githubusercontent.com/quochoangvp/Proxmox/remz/misc/nvidia.func)
 check_nvidia_drivers
 if [ ! -z $NVD_VER ]; then
   echo -e "Nvidia drivers detected"
@@ -158,7 +158,7 @@ if [ ! -z $NVD_VER ]; then
   echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> /etc/bash.bashrc
   ldconfig
   # Temporarily get my patched frigate tensorrt.py plugin (with support for TensorRT v10)
-  curl -s https://raw.githubusercontent.com/remz1337/frigate/dev/frigate/detectors/plugins/tensorrt.py > /opt/frigate/frigate/detectors/plugins/tensorrt.py
+  curl -s https://raw.githubusercontent.com/quochoangvp/frigate/dev/frigate/detectors/plugins/tensorrt.py > /opt/frigate/frigate/detectors/plugins/tensorrt.py
   msg_ok "Installed TensorRT"
 
   msg_info "Installing TensorRT Object Detection Model (Resilience)"
@@ -177,7 +177,7 @@ EOF
   sed -i '18,21 s|.|#&|' /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
   sed -i '9 i bash \/opt\/frigate\/fix_tensorrt.sh' /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
   #Temporarly get my fork patched for TensorRT v10
-  #sed -i 's|NateMeyer|remz1337|g' /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
+  #sed -i 's|NateMeyer|quochoangvp|g' /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
   $STD apt install -qqy python-is-python3 g++
   $STD /opt/frigate/docker/tensorrt/detector/tensorrt_libyolo.sh
   cd /opt/frigate
